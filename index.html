@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SensoTek A.Ş. | SmartBox ve Sensör Kiti Üreticisi</title>
+    <meta name="description" content="SensoTek A.Ş. (G03) — SmartBox ve Sensör Kiti uzman üreticisi. B2B sensör tedariki ve perakende SmartBox çözümleri.">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    
+    <!-- Google Fonts: Plus Jakarta Sans (Modern & Kurumsal Tipografi) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Master Modular CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigasyon (Üst Menü) -->
+    <header>
+        <div class="container header-container">
+            <a href="#ana-sayfa" class="logo-container" aria-label="SensoTek A.Ş. Ana Sayfa">
+                <img src="assets/logo.png" alt="SensoTek A.Ş. Logo" class="logo-img" id="company-logo">
+                <span class="company-name">
+                    SensoTek A.Ş.
+                    <span class="company-tag">G03</span>
+                </span>
+            </a>
+
+            <!-- 3 Çizgili Mobil Hamburger Butonu -->
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Menüyü Aç / Kapat" aria-expanded="false" aria-controls="nav-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Navigasyon Menüsü (Masaüstünde Yatay, Mobilde Açılır Çekmece) -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#ana-sayfa" class="nav-link active">Ana Sayfa</a></li>
+                    <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="#urunler" class="nav-link">Ürünler</a></li>
+                    <li><a href="#departmanlar" class="nav-link">Departmanlar</a></li>
+                    <li><a href="#iletisim" class="nav-link">İletişim</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobil Menü Karartma Katmanı (Backdrop) -->
+    <div class="nav-backdrop" id="nav-backdrop"></div>
+
+    <!-- Ana Sayfa (Hero Bölümü) -->
+    <section id="ana-sayfa" class="section-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>B2B Sensör Teknolojileri ve SmartBox Üretimi</span>
+                </div>
+                <h1 class="hero-title">Geleceğin Sensör Teknolojileri</h1>
+                <p class="hero-subtitle">SmartBox cihazlarının temel bileşeni Sensör Kiti'nin uzman üreticisi. Endüstriyel hassasiyet ve yüksek güvenilirlikli donanım çözümleri.</p>
+                <div class="hero-actions">
+                    <a href="#urunler" class="btn btn-primary">Ürünleri Keşfet</a>
+                    <a href="#iletisim" class="btn btn-secondary">B2B Teklif İste</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hakkımızda Bölümü -->
+    <section id="hakkimizda" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Hakkımızda</h2>
+            <div class="about-card">
+                <p><strong>SensoTek A.Ş. (G03)</strong>, SmartBox cihazlarının temel bileşeni olan Sensör Kiti'nin uzman üreticisidir. B2B pazarında diğer şirketlerin sensör ihtiyacını karşılarken, montajını yaptığımız SmartBox'ları perakende pazarına sunuyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ürünler Bölümü -->
+    <section id="urunler" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Ürünlerimiz</h2>
+            <div class="products-grid">
+                <!-- Ürün 1: Sensör Kiti -->
+                <div class="product-card">
+                    <span class="product-badge badge-b2b">B2B Tedarik</span>
+                    <div class="product-image">
+                        <img src="assets/sensor-kiti.png" alt="Sensör Kiti Görseli" loading="lazy">
+                    </div>
+                    <h3>Sensör Kiti (B2B)</h3>
+                    <p>SmartBox cihazlarının üretimi için zorunlu olan temel uzmanlık bileşenimizdir. Diğer şirketlerin ihtiyaçları için B2B pazarında yüksek kapasiteyle tedarik edilir.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Yüksek Hassasiyet</span>
+                        <span class="feature-tag">OEM Uyumlu</span>
+                        <span class="feature-tag">B2B Toplu Satış</span>
+                    </div>
+                </div>
+
+                <!-- Ürün 2: SmartBox -->
+                <div class="product-card">
+                    <span class="product-badge badge-retail">Perakende</span>
+                    <div class="product-image">
+                        <img src="assets/smartbox.png" alt="SmartBox Görseli" loading="lazy">
+                    </div>
+                    <h3>SmartBox (Perakende)</h3>
+                    <p>Gerekli 8 bileşenin şirketimiz bünyesinde montajlanmasıyla ortaya çıkan ve doğrudan perakende pazarına sunduğumuz nihai akıllı kutu ürünüdür.</p>
+                    <div class="product-features">
+                        <span class="feature-tag">Tak & Çalıştır</span>
+                        <span class="feature-tag">Tam Entegre</span>
+                        <span class="feature-tag">Perakende Garanti</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departmanlar Bölümü -->
+    <section id="departmanlar" class="section-light">
+        <div class="container">
+            <h2 class="section-title">Departmanlarımız ve Yönetim</h2>
+            <div class="departments-grid">
+                
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">Yönetim</span>
+                    </div>
+                    <span class="manager-name">Mehmed Akif Kızıltaş</span>
+                    <p class="dept-desc"><strong>Genel Müdür:</strong> Strateji, müdür atamaları, onaylar ve tüm birimlerin koordinasyonu.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">Finans</span>
+                    </div>
+                    <span class="manager-name">Kamber Ünsal</span>
+                    <p class="dept-desc"><strong>Finans Müdürü:</strong> Kasa, bütçe, borç ve alacak, gelir tablosu ve bilanço.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">Tedarik</span>
+                    </div>
+                    <span class="manager-name">Semanur Erdoğan</span>
+                    <p class="dept-desc"><strong>Tedarik Müdürü:</strong> Şirketler arası teklifler, açık satış ilanları ve satın alma.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">Operasyon</span>
+                    </div>
+                    <span class="manager-name">Ömer Durmuş</span>
+                    <p class="dept-desc"><strong>Operasyon Müdürü:</strong> İşçi ve teçhizatla günlük üretim, montaj ve hazır stok.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">Pazarlama</span>
+                    </div>
+                    <span class="manager-name">Semanur Erdoğan</span>
+                    <p class="dept-desc"><strong>Pazarlama Müdürü:</strong> Fiyat, talep, şirket vitrini ve pazar performansı.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">Bilişim & Veri</span>
+                    </div>
+                    <span class="manager-name">Erdem Gökduman</span>
+                    <p class="dept-desc"><strong>BT ve Veri Müdürü:</strong> Dijital altyapı, veri güvenliği ve web/MIS çıktıları.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">İnsan Kaynakları</span>
+                    </div>
+                    <span class="manager-name">Firdevsnur Bolat</span>
+                    <p class="dept-desc"><strong>İK Müdürü:</strong> Çalışan seçimi, maaşlar, ekip görevleri ve özgeçmişler.</p>
+                </div>
+
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <span class="dept-role">Risk & Etik</span>
+                    </div>
+                    <span class="manager-name">Beyzanur Çamur</span>
+                    <p class="dept-desc"><strong>Risk ve Etik Müdürü:</strong> Uyum, kalite, KVKK, teslim riski ve gerekçeli kararlar.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Bölümü -->
+    <section id="iletisim" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">İletişim</h2>
+            <div class="contact-box">
+                <span class="contact-badge">SensoTek A.Ş. (G03) Yönetimi</span>
+                <h3>B2B Ortaklık ve Tedarik Talepleri</h3>
+                <p>Sensör Kiti B2B sipariş ve kapasite talepleriniz için sistem üzerinden teklif iletebilirsiniz.</p>
+                <a href="https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Teklif Formu İlet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SensoTek A.Ş. (G03) — Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Modüler JavaScript Bileşenleri -->
+    <script src="js/components/navbar.js"></script>
+</body>
+</html>

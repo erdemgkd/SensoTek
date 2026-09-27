@@ -1,0 +1,19 @@
+/* ==========================================================================
+   SensoTek A.Ş. — Ana Stil Orkestrasyonu (Master Stylesheet)
+   Sıfır Spagetti: Tüm stiller bağımsız modüllerden import edilir.
+   ========================================================================== */
+
+/* 1. Temel Değişkenler ve Reset */
+@import url('css/variables.css');
+@import url('css/base.css');
+@import url('css/layout.css');
+
+/* 2. Bağımsız Bileşenler (Components) */
+@import url('css/components/navbar.css');
+@import url('css/components/hero.css');
+@import url('css/components/products.css');
+@import url('css/components/departments.css');
+@import url('css/components/contact.css');
+
+/* 3. Mobil Uyumluluk & Responsive Breakpoints */
+@import url('css/responsive.css');

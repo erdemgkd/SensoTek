@@ -1,0 +1,190 @@
+/* ==========================================================================
+   SensoTek A.Ş. — Responsive & Mobil Kırılma Noktaları (Responsive)
+   ========================================================================== */
+
+/* Tablet & Küçük Ekranlar (<= 992px) */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .departments-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+}
+
+/* Mobil Cihazlar (<= 768px) - Hamburger Menü ve Alt Alta Sıralama */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 64px;
+    }
+
+    section {
+        padding: 56px 0;
+        scroll-margin-top: calc(var(--header-height) + 10px);
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Şirket Adı & Logo Boyutlandırması */
+    .company-name {
+        font-size: 1.15rem;
+    }
+
+    .company-tag {
+        display: none; /* Mobilde yer kazanmak için */
+    }
+
+    /* 3 Çizgili Hamburger Butonu Görünür */
+    .hamburger-btn {
+        display: flex;
+    }
+
+    /* Navigasyon Menüsü - Mobilde Açılır Çekmece (Drawer) */
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: rgba(10, 15, 29, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border-subtle);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.45);
+        padding: 0 16px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s ease,
+                    padding 0.3s ease,
+                    visibility 0.3s ease;
+        z-index: var(--z-drawer);
+    }
+
+    /* Hamburger tıklandığında açılan menü */
+    .nav-menu.is-open {
+        max-height: 420px;
+        padding: 16px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* Kategoriler Alt Alta Dizilir */
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 6px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    /* Dokunmatik Dostu Geniş Butonlar (Minimum 48px yükseklik) */
+    .nav-link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 14px 18px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--color-text-main);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: var(--radius-sm);
+        border-left: 3px solid transparent;
+        transition: all var(--transition-fast);
+    }
+
+    .nav-link:hover,
+    .nav-link:active {
+        background: rgba(14, 165, 233, 0.12);
+        color: var(--color-accent-hover);
+        border-left-color: var(--color-accent-primary);
+        padding-left: 22px;
+    }
+
+    .nav-link.active {
+        background: rgba(14, 165, 233, 0.15);
+        color: var(--color-accent-hover);
+        border-left-color: var(--color-accent-primary);
+    }
+
+    /* Backdrop Mobilde Açıkken Gözüksün */
+    .nav-backdrop {
+        display: block;
+    }
+
+    /* Hero Bölümü Mobil Ayarı */
+    .section-hero {
+        min-height: auto;
+        padding-top: calc(var(--header-height) + 40px);
+        padding-bottom: 50px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 28px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    /* Ürün Kartları Tek Kolon */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .product-card {
+        padding: 20px;
+    }
+
+    .product-image {
+        height: 190px;
+    }
+
+    /* Departmanlar Tek Kolon */
+    .departments-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .dept-card {
+        padding: 20px;
+    }
+
+    .section-title {
+        font-size: 1.85rem;
+        margin-bottom: 36px;
+    }
+}
+
+/* Çok Küçük Ekranlar (<= 380px) */
+@media (max-width: 380px) {
+    .company-name {
+        font-size: 1rem;
+    }
+    
+    .logo-img {
+        width: 36px;
+        height: 36px;
+    }
+}
