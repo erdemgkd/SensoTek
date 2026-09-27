@@ -141,18 +141,16 @@ header {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* Mobil Menü Arkası Karartma (Backdrop Overlay) */
+/* Mobil Menü Arkası Karartma (Backdrop Overlay - Menünün ve Header'ın Arkasında Kalır) */
 .nav-backdrop {
     display: none;
     position: fixed;
-    top: 0;
+    top: var(--header-height);
     left: 0;
     width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    z-index: var(--z-overlay);
+    height: calc(100vh - var(--header-height));
+    background: rgba(0, 0, 0, 0.7);
+    z-index: var(--z-backdrop);
     opacity: 0;
     transition: opacity var(--transition-normal);
     pointer-events: none;

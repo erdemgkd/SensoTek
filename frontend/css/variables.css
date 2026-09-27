@@ -45,8 +45,8 @@
     --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Z-Index Seviyeleri */
+    --z-backdrop: 900;
     --z-header: 1000;
     --z-drawer: 1050;
-    --z-overlay: 1040;
     --z-modal: 1100;
 }
