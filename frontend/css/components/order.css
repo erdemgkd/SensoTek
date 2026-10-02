@@ -1,0 +1,295 @@
+/* ==========================================================================
+   SensoTek A.Ş. — Tedarikçi & B2B Sipariş Formu Bileşeni (Order Form)
+   ========================================================================== */
+
+.section-order {
+    background: linear-gradient(180deg, #0f172a 0%, #0a0f1d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-order::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.order-form-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    background: rgba(19, 29, 53, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(14, 165, 233, 0.08);
+}
+
+.order-form-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.order-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    background: rgba(14, 165, 233, 0.15);
+    color: var(--color-accent-hover);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.order-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Form Izgarası */
+.order-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-label .required {
+    color: #f43f5e;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    background: rgba(10, 15, 29, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-sm);
+    padding: 13px 16px;
+    color: var(--color-text-main);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.25);
+    background: rgba(10, 15, 29, 0.95);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #64748b;
+}
+
+/* Özel Select Dropdown */
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 42px;
+}
+
+.form-select option {
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 12px;
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Tahmini Tutar / Canlı Bilgi Şeridi */
+.order-summary-box {
+    grid-column: 1 / -1;
+    background: rgba(14, 165, 233, 0.08);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.summary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.summary-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-accent-hover);
+}
+
+.summary-desc {
+    font-size: 0.9rem;
+    color: var(--color-text-main);
+}
+
+.summary-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+}
+
+/* Buton ve Aksiyonlar */
+.form-actions {
+    grid-column: 1 / -1;
+    margin-top: 8px;
+}
+
+.btn-submit-order {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);
+    transition: all var(--transition-fast);
+}
+
+.btn-submit-order:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.6);
+    filter: brightness(1.1);
+}
+
+.btn-submit-order:active {
+    transform: translateY(0);
+}
+
+/* Başarı Bildirimi (Success State) */
+.order-success-card {
+    display: none;
+    text-align: center;
+    padding: 32px 20px;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: var(--radius-md);
+    margin-top: 20px;
+    animation: fadeIn 0.4s ease;
+}
+
+.order-success-card.is-visible {
+    display: block;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 16px;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+.order-success-card h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4ade80;
+    margin-bottom: 8px;
+}
+
+.order-success-card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+.ref-code {
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 6px 16px;
+    border-radius: var(--radius-sm);
+    font-family: monospace;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #38bdf8;
+    margin-bottom: 20px;
+    border: 1px dashed rgba(56, 189, 248, 0.4);
+}
+
+.btn-reset-form {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-main);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-reset-form:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

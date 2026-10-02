@@ -35,11 +35,7 @@ header {
 .logo-img {
     width: 42px;
     height: 42px;
-    border-radius: var(--radius-sm);
     object-fit: contain;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 2px;
-    border: 1px solid var(--border-subtle);
     transition: transform var(--transition-fast);
 }
 

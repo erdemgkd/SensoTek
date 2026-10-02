@@ -9,7 +9,7 @@
     }
 
     .departments-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 16px;
     }
 }
@@ -167,6 +167,33 @@
 
     .dept-card {
         padding: 20px;
+    }
+
+    /* Misyon & Vizyon Tek Kolon */
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Ticaret & Teslimat Paneli Mobilde 1 Kolon */
+    .trade-terms-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .trade-terms-container {
+        padding: 20px 16px;
+        margin-top: 32px;
+    }
+
+    /* Sipariş Formu Mobilde Tek Kolon */
+    .order-form-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .order-form-wrapper {
+        padding: 24px 16px;
     }
 
     .section-title {
