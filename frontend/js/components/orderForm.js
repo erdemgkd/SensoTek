@@ -1,7 +1,8 @@
 /**
- * SensoTek A.Ş. — Tedarikçi & B2B Sipariş Formu Modülü
+ * SensoTek A.Ş. — Sipariş Formu ve Otomatik E-Posta Taslak İletim Modülü
  * Modüler Yapı: Bağımsız dosya, izole kapsam (IIFE).
- * Sorumluluk: Ürün seçimi, adet doğrulaması, canlı özet ve sipariş gönderim etkileşimi.
+ * Sorumluluk: Ürün seçimi, adet doğrulaması, canlı özet, e-posta taslağı oluşturma ve iletim yönetimi.
+ * Hedef E-Posta: sensotek03@gmail.com
  */
 
 (function () {
@@ -15,11 +16,20 @@
         const summaryTag = document.getElementById('summary-tag');
         const successCard = document.getElementById('order-success-card');
         const refCodeEl = document.getElementById('ref-code-value');
+        const dispatchCompanyEl = document.getElementById('dispatch-company');
+        const dispatchProductEl = document.getElementById('dispatch-product');
+        const emailPreviewEl = document.getElementById('email-preview-content');
+        const btnSendGmail = document.getElementById('btn-send-gmail');
+        const btnSendMailto = document.getElementById('btn-send-mailto');
+        const btnCopyDraft = document.getElementById('btn-copy-draft');
+        const copyBtnText = document.getElementById('copy-btn-text');
         const btnReset = document.getElementById('btn-reset-order');
 
         if (!form) {
             return;
         }
+
+        let currentDraftText = '';
 
         // Ürün ve adede göre canlı özet güncelleme
         function updateSummary() {
@@ -27,14 +37,14 @@
             const quantity = parseInt(quantityInput.value, 10) || 1;
 
             if (product === 'sensor-kiti') {
-                const minPrice = 80 * quantity;
-                const maxPrice = 130 * quantity;
+                const minPrice = 60 * quantity;
+                const maxPrice = 90 * quantity;
                 summaryDesc.textContent = `${quantity.toLocaleString('tr-TR')} Adet Sensör Kiti (${minPrice.toLocaleString('tr-TR')} ₺ – ${maxPrice.toLocaleString('tr-TR')} ₺)`;
                 summaryTag.textContent = '1.500 Adet Hazır Stok';
             } else if (product === 'smartbox-ulusal') {
-                const minPrice = 2300 * quantity;
-                const maxPrice = 3000 * quantity;
-                summaryDesc.textContent = `${quantity.toLocaleString('tr-TR')} Adet SmartBox Ulusal Pazar (${minPrice.toLocaleString('tr-TR')} ₺ – ${maxPrice.toLocaleString('tr-TR')} ₺)`;
+                const minPrice = 750 * quantity;
+                const maxPrice = 1000 * quantity;
+                summaryDesc.textContent = `${quantity.toLocaleString('tr-TR')} Adet SmartBox (${minPrice.toLocaleString('tr-TR')} ₺ – ${maxPrice.toLocaleString('tr-TR')} ₺)`;
                 summaryTag.textContent = 'Doğrudan Satışa Hazır';
             } else if (product === 'smartbox-ihracat') {
                 const minPrice = 35 * quantity;
@@ -53,44 +63,136 @@
             updateSummary();
         }
 
-        // Form Gönderimi
+        // Form Gönderimi & Otomatik E-Posta Taslağı Oluşturma
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
             const fullName = document.getElementById('order-fullname').value.trim();
             const company = document.getElementById('order-company').value.trim();
             const email = document.getElementById('order-email').value.trim();
-            const product = productSelect.options[productSelect.selectedIndex].text;
-            const quantity = quantityInput.value;
+            const phone = document.getElementById('order-phone') ? document.getElementById('order-phone').value.trim() || 'Belirtilmedi' : 'Belirtilmedi';
+            const productText = productSelect.options[productSelect.selectedIndex].text;
+            const quantity = parseInt(quantityInput.value, 10) || 1;
+            const paymentSelect = document.getElementById('order-payment-type');
+            const paymentText = paymentSelect ? paymentSelect.options[paymentSelect.selectedIndex].text : 'Peşin Ödeme';
+            const notesEl = document.getElementById('order-notes');
+            const notes = notesEl && notesEl.value.trim() ? notesEl.value.trim() : 'Özel sipariş notu bulunmamaktadır.';
 
             if (!fullName || !company || !email) {
-                alert('Lütfen zorunlu alanları (Ad Soyad, Şirket Adı, E-posta) eksiksiz doldurunuz.');
+                alert('Lütfen zorunlu alanları (Ad Soyad, Şirket Adı, Kurumsal E-posta) eksiksiz doldurunuz.');
                 return;
             }
 
-            // Rastgele Sipariş Referans Kodu Oluştur (örn: STK-2026-9842)
-            const randomRef = 'STK-' + Math.floor(1000 + Math.random() * 9000);
-            if (refCodeEl) {
-                refCodeEl.textContent = randomRef;
+            // Rastgele Takip & Referans Kodu (örn: STK-2026-7492)
+            const randomRef = 'STK-2026-' + Math.floor(1000 + Math.random() * 9000);
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('tr-TR', { day: '2-digit', month: '2-digit', year: 'numeric' }) + ' ' +
+                            now.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' });
+
+            const targetRecipient = 'sensotek03@gmail.com';
+            const simpleProductName = productText.split('(')[0].trim();
+            const emailSubject = `[SensoTek Sipariş Talebi] Ref: ${randomRef} - ${company} (${simpleProductName})`;
+
+            // Profesyonel Kurumsal E-Posta Taslak Metni
+            const emailBody = 
+`Sayın SensoTek A.Ş. Yönetimi ve Satış Departmanı,
+
+Aşağıda detayları belirtilen ürün ve adetler için kurumsal B2B sipariş ve teklif talebimizi bilgilerinize sunarız:
+
+═══════════════════════════════════════════════════════
+📋 SİPARİŞ VE TALEP DETAYLARI
+═══════════════════════════════════════════════════════
+• Sipariş Referans No : ${randomRef}
+• Talep Tarihi        : ${dateStr}
+• Talep Edilen Ürün   : ${productText}
+• Talep Edilen Adet   : ${quantity.toLocaleString('tr-TR')} Adet
+• Tahmini Fiyat Hacmi : ${summaryDesc.textContent}
+• Ödeme & Teslimat    : ${paymentText}
+
+═══════════════════════════════════════════════════════
+🏢 ALICI / ŞİRKET İLETİŞİM BİLGİLERİ
+═══════════════════════════════════════════════════════
+• Yetkili Ad Soyad    : ${fullName}
+• Şirket / Kurum Adı  : ${company}
+• Kurumsal E-Posta    : ${email}
+• Telefon Numarası    : ${phone}
+
+═══════════════════════════════════════════════════════
+📝 SİPARİŞ NOTU / ÖZEL TALEPLER
+═══════════════════════════════════════════════════════
+${notes}
+
+═══════════════════════════════════════════════════════
+Talebimizin incelenerek tarafımıza resmi sipariş onayı ve proforma faturanın iletilmesini rica ederiz.
+
+Saygılarımızla,
+${fullName} — ${company}`;
+
+            currentDraftText = emailBody;
+
+            // DOM Elemanlarını Doldur
+            if (refCodeEl) refCodeEl.textContent = randomRef;
+            if (dispatchCompanyEl) dispatchCompanyEl.textContent = `${company} (${fullName})`;
+            if (dispatchProductEl) dispatchProductEl.textContent = `${quantity.toLocaleString('tr-TR')} Adet ${simpleProductName}`;
+            if (emailPreviewEl) emailPreviewEl.textContent = emailBody;
+
+            // Gmail Web URL'si
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(targetRecipient)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            if (btnSendGmail) {
+                btnSendGmail.href = gmailUrl;
             }
 
-            // Formu gizle, başarı kartını göster
+            // Standart Mailto URL'si (Outlook, Apple Mail, Windows Mail)
+            const mailtoUrl = `mailto:${targetRecipient}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            if (btnSendMailto) {
+                btnSendMailto.href = mailtoUrl;
+            }
+
+            // Formu gizle, E-Posta İletim Merkezini göster
             form.style.display = 'none';
             if (successCard) {
                 successCard.classList.add('is-visible');
-                successCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                successCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-
-            console.log('Sipariş Talebi Alındı:', {
-                ref: randomRef,
-                fullName,
-                company,
-                email,
-                product,
-                quantity,
-                timestamp: new Date().toISOString()
-            });
         });
+
+        // Metin Taslağını Panoya Kopyalama Butonu
+        if (btnCopyDraft && copyBtnText) {
+            btnCopyDraft.addEventListener('click', function () {
+                if (!currentDraftText) return;
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(currentDraftText).then(onCopySuccess).catch(fallbackCopy);
+                } else {
+                    fallbackCopy();
+                }
+
+                function fallbackCopy() {
+                    const tempTextarea = document.createElement('textarea');
+                    tempTextarea.value = currentDraftText;
+                    document.body.appendChild(tempTextarea);
+                    tempTextarea.select();
+                    try {
+                        document.execCommand('copy');
+                        onCopySuccess();
+                    } catch (err) {
+                        alert('Taslak panoya kopyalanamadı, lütfen önizleme alanından manuel seçip kopyalayınız.');
+                    }
+                    document.body.removeChild(tempTextarea);
+                }
+
+                function onCopySuccess() {
+                    const originalText = copyBtnText.textContent;
+                    copyBtnText.textContent = 'Metin Kopyalandı! ✓';
+                    btnCopyDraft.classList.add('copied');
+
+                    setTimeout(function () {
+                        copyBtnText.textContent = originalText;
+                        btnCopyDraft.classList.remove('copied');
+                    }, 2500);
+                }
+            });
+        }
 
         // Yeni Sipariş Oluştur (Formu Sıfırla)
         if (btnReset) {
@@ -101,8 +203,21 @@
                     successCard.classList.remove('is-visible');
                 }
                 updateSummary();
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         }
+
+        // Ürün kartlarındaki "Sipariş Formu Oluştur" butonları
+        const productSelectTriggers = document.querySelectorAll('[data-product-select]');
+        productSelectTriggers.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const targetProduct = btn.getAttribute('data-product-select');
+                if (targetProduct && productSelect) {
+                    productSelect.value = targetProduct;
+                    updateSummary();
+                }
+            });
+        });
     }
 
     if (document.readyState === 'loading') {

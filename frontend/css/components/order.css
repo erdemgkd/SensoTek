@@ -215,15 +215,16 @@
     transform: translateY(0);
 }
 
-/* Başarı Bildirimi (Success State) */
+/* Başarı ve E-Posta İletim Merkezi (Dispatch Hub) */
 .order-success-card {
     display: none;
     text-align: center;
-    padding: 32px 20px;
-    background: rgba(34, 197, 94, 0.08);
-    border: 1px solid rgba(34, 197, 94, 0.3);
-    border-radius: var(--radius-md);
-    margin-top: 20px;
+    padding: 36px 28px;
+    background: linear-gradient(180deg, rgba(19, 29, 53, 0.95), rgba(15, 23, 42, 0.98));
+    border: 1px solid rgba(14, 165, 233, 0.35);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(14, 165, 233, 0.12);
+    margin-top: 10px;
     animation: fadeIn 0.4s ease;
 }
 
@@ -231,62 +232,276 @@
     display: block;
 }
 
+.success-icon-wrap {
+    margin-bottom: 12px;
+}
+
 .success-icon {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    background: rgba(34, 197, 94, 0.2);
+    background: rgba(34, 197, 94, 0.15);
     color: #4ade80;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 16px;
-    border: 1px solid rgba(34, 197, 94, 0.4);
+    font-size: 2.2rem;
+    font-weight: 700;
+    border: 2px solid rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 25px rgba(34, 197, 94, 0.3);
+}
+
+.success-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+    background: rgba(34, 197, 94, 0.12);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
 }
 
 .order-success-card h4 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4ade80;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
     margin-bottom: 8px;
+    letter-spacing: -0.01em;
 }
 
-.order-success-card p {
+.success-subtitle {
     color: var(--color-text-muted);
-    font-size: 0.95rem;
-    max-width: 500px;
-    margin: 0 auto 20px;
+    font-size: 0.98rem;
+    max-width: 620px;
+    margin: 0 auto 24px;
     line-height: 1.6;
+}
+
+.success-subtitle strong {
+    color: var(--color-accent-hover);
+}
+
+/* 3'lü Sipariş Özeti Bilgi Şeridi */
+.order-dispatch-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    background: rgba(10, 15, 29, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.dispatch-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dispatch-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+}
+
+.dispatch-val {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ref-code {
     display: inline-block;
-    background: rgba(0, 0, 0, 0.3);
-    padding: 6px 16px;
-    border-radius: var(--radius-sm);
     font-family: monospace;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--color-accent-hover);
+    letter-spacing: 0.02em;
+}
+
+/* E-Posta Aksiyon Butonları */
+.email-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.btn-email-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 18px;
+    font-size: 0.95rem;
     font-weight: 700;
-    color: #38bdf8;
-    margin-bottom: 20px;
-    border: 1px dashed rgba(56, 189, 248, 0.4);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.email-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* 1. Gmail Web Butonu */
+.btn-gmail {
+    background: linear-gradient(135deg, #ea4335, #c5221f);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(234, 67, 53, 0.35);
+}
+
+.btn-gmail:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(234, 67, 53, 0.55);
+    filter: brightness(1.08);
+}
+
+/* 2. Mailto / Varsayılan E-Posta */
+.btn-mailto {
+    background: linear-gradient(135deg, var(--color-accent-primary), #0284c7);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.35);
+}
+
+.btn-mailto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.55);
+    filter: brightness(1.08);
+}
+
+/* 3. Metin Taslağını Kopyala */
+.btn-copy {
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--color-text-main);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.btn-copy:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(14, 165, 233, 0.4);
+    transform: translateY(-2px);
+    color: var(--color-accent-hover);
+}
+
+.btn-copy.copied {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: rgba(34, 197, 94, 0.5);
+    color: #4ade80;
+}
+
+/* E-Posta Önizleme Alanı */
+.email-preview-wrapper {
+    background: #080c17;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.preview-tag {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    background: rgba(14, 165, 233, 0.12);
+    color: var(--color-accent-hover);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.email-preview-content {
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    white-space: pre-wrap;
+    word-break: break-word;
+    max-height: 260px;
+    overflow-y: auto;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Scrollbar Tasarımı */
+.email-preview-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.email-preview-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+.success-footer {
+    display: flex;
+    justify-content: center;
 }
 
 .btn-reset-form {
-    padding: 10px 24px;
-    font-size: 0.9rem;
+    padding: 12px 28px;
+    font-size: 0.92rem;
     font-weight: 600;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--color-text-main);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-muted);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-reset-form:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-main);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .order-dispatch-summary {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .email-actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-email-action {
+        width: 100%;
+    }
 }
 
 @keyframes fadeIn {

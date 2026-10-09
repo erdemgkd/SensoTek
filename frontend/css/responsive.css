@@ -2,55 +2,20 @@
    SensoTek A.Ş. — Responsive & Mobil Kırılma Noktaları (Responsive)
    ========================================================================== */
 
-/* Tablet & Küçük Ekranlar (<= 992px) */
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-
-    .departments-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 16px;
-    }
-}
-
-/* Mobil Cihazlar (<= 768px) - Hamburger Menü ve Alt Alta Sıralama */
-@media (max-width: 768px) {
-    :root {
-        --header-height: 64px;
-    }
-
-    section {
-        padding: 56px 0;
-        scroll-margin-top: calc(var(--header-height) + 10px);
-    }
-
-    .container {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    /* Şirket Adı & Logo Boyutlandırması */
-    .company-name {
-        font-size: 1.15rem;
-    }
-
-    .company-tag {
-        display: none; /* Mobilde yer kazanmak için */
-    }
-
+/* Tablet & Küçük Ekranlar (<= 1120px) — Hamburger Menüye Geçiş */
+@media (max-width: 1120px) {
     /* 3 Çizgili Hamburger Butonu Görünür */
     .hamburger-btn {
         display: flex;
     }
 
-    /* Navigasyon Menüsü - Mobilde Açılır Çekmece (Drawer) */
+    /* Navigasyon Menüsü - Açılır Çekmece (Drawer) */
     .nav-menu {
         position: fixed;
         top: var(--header-height);
         left: 0;
         width: 100%;
-        background: #0b1120; /* Kristal netliğinde opak kurumsal lacivert, sıfır bulanıklık */
+        background: #0b1120;
         border-bottom: 1px solid var(--border-subtle);
         box-shadow: 0 20px 35px rgba(0, 0, 0, 0.75);
         padding: 0 16px;
@@ -68,7 +33,7 @@
 
     /* Hamburger tıklandığında açılan menü */
     .nav-menu.is-open {
-        max-height: 420px;
+        max-height: 580px;
         padding: 16px;
         opacity: 1;
         visibility: visible;
@@ -115,9 +80,59 @@
         border-left-color: var(--color-accent-primary);
     }
 
-    /* Backdrop Mobilde Açıkken Gözüksün */
+    .nav-btn-market {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 6px;
+        padding: 14px 18px;
+        font-size: 1.05rem;
+        box-shadow: 0 0 15px rgba(14, 165, 233, 0.25);
+    }
+
+    /* Backdrop Açıkken Gözüksün */
     .nav-backdrop {
         display: block;
+    }
+}
+
+/* Tablet İçerik Ayarları (<= 992px) */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .departments-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+}
+
+/* Mobil Cihazlar (<= 768px) */
+@media (max-width: 768px) {
+    :root {
+        --header-height: 64px;
+    }
+
+    section {
+        padding: 56px 0;
+        scroll-margin-top: calc(var(--header-height) + 10px);
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Şirket Adı & Logo Boyutlandırması */
+    .company-name {
+        font-size: 1.15rem;
+    }
+
+    .company-tag {
+        display: none; /* Mobilde yer kazanmak için */
     }
 
     /* Hero Bölümü Mobil Ayarı */

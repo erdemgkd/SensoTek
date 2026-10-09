@@ -1,0 +1,391 @@
+/* ==========================================================================
+   SensoTek A.Ş. — Haftalık KPI & Performans Paneli (KPI Component)
+   Sorumluluk: Üretim, Montaj, Satış ve Müşteri Memnuniyeti Göstergeleri
+   ========================================================================== */
+
+.section-kpi {
+    background-color: var(--color-bg-primary);
+    position: relative;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.kpi-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.kpi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    background: rgba(14, 165, 233, 0.12);
+    border: 1px solid rgba(14, 165, 233, 0.35);
+    color: var(--color-accent-hover);
+    margin-bottom: 14px;
+}
+
+.kpi-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-top: -24px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-subtle);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+}
+
+.kpi-subtitle strong {
+    color: var(--color-accent-hover);
+}
+
+/* Özet Satış Banner'ı */
+.kpi-summary-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(19, 29, 53, 0.95));
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    border-radius: var(--radius-md);
+    padding: 24px 32px;
+    margin-bottom: 36px;
+    box-shadow: var(--shadow-md), 0 0 25px rgba(14, 165, 233, 0.08);
+    gap: 20px;
+}
+
+.summary-banner-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.summary-banner-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+}
+
+.summary-banner-val {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.summary-banner-val small {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-accent-hover);
+}
+
+.summary-banner-badge.success {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    margin-top: 4px;
+}
+
+.summary-banner-sub {
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+.summary-banner-divider {
+    width: 1px;
+    height: 50px;
+    background: var(--border-subtle);
+}
+
+/* KPI 4'lü Grid */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.kpi-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: var(--shadow-md), 0 0 20px rgba(14, 165, 233, 0.1);
+}
+
+.kpi-card-highlight {
+    border-color: rgba(14, 165, 233, 0.4);
+    background: linear-gradient(180deg, rgba(19, 29, 53, 0.95), rgba(15, 23, 42, 0.98));
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.12);
+}
+
+/* Kart Üst Başlık */
+.kpi-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.kpi-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kpi-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+}
+
+.kpi-icon-sales {
+    background: rgba(14, 165, 233, 0.15);
+    color: var(--color-accent-hover);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.kpi-icon-prod {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.kpi-icon-assembly {
+    background: rgba(99, 102, 241, 0.15);
+    color: #a5b4fc;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.kpi-icon-csat {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.kpi-header-info {
+    flex-grow: 1;
+}
+
+.kpi-cat {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+}
+
+.kpi-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin: 0;
+}
+
+.kpi-status-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.status-active {
+    background: rgba(34, 197, 94, 0.15);
+    color: #4ade80;
+    border: 1px solid rgba(34, 197, 94, 0.35);
+}
+
+.status-pending {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fcd34d;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.kpi-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Metrik Kutuları Listesi */
+.kpi-metrics-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-grow: 1;
+}
+
+.kpi-metric-box {
+    background: rgba(10, 15, 29, 0.6);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.kpi-metric-box.primary {
+    border-color: rgba(99, 102, 241, 0.35);
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.kpi-metric-box.accent {
+    border-color: rgba(14, 165, 233, 0.35);
+    background: rgba(14, 165, 233, 0.06);
+}
+
+.kpi-metric-box.muted {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-subtle);
+}
+
+.metric-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.metric-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.metric-pill {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--color-text-muted);
+    border: 1px solid var(--border-subtle);
+}
+
+.metric-pill.info {
+    background: rgba(245, 158, 11, 0.1);
+    color: #fbbf24;
+    border-color: rgba(245, 158, 11, 0.25);
+}
+
+.metric-number-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.metric-number {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.kpi-metric-box.primary .metric-number {
+    color: #c7d2fe;
+}
+
+.kpi-metric-box.accent .metric-number {
+    color: var(--color-accent-hover);
+}
+
+.metric-unit {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
+.metric-placeholder {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #64748b;
+}
+
+.metric-status-text {
+    font-size: 0.76rem;
+    color: #94a3b8;
+    font-style: italic;
+}
+
+/* Kart Alt Notu */
+.kpi-card-footer {
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 12px;
+    margin-top: auto;
+}
+
+.footer-note {
+    font-size: 0.78rem;
+    color: #4ade80;
+    display: block;
+    line-height: 1.4;
+}
+
+.footer-note.info {
+    color: #94a3b8;
+}
+
+/* Mobil & Tablet Uyumluluğu */
+@media (max-width: 900px) {
+    .kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .kpi-summary-banner {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .summary-banner-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .kpi-metrics-list {
+        grid-template-columns: 1fr;
+    }
+}
