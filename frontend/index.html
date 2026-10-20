@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Master Modular CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
@@ -41,6 +41,7 @@
                     <li><a href="#ana-sayfa" class="nav-link active">Ana Sayfa</a></li>
                     <li><a href="#hakkimizda" class="nav-link">Hakkımızda</a></li>
                     <li><a href="#urunler" class="nav-link">Ürünler</a></li>
+                    <li><a href="#bilesenler" class="nav-link">Bileşenler</a></li>
                     <li><a href="#kpi-raporu" class="nav-link">Haftalık KPI</a></li>
                     <li><a href="#departmanlar" class="nav-link">Departmanlar</a></li>
                     <li><a href="#siparis-formu" class="nav-link">Sipariş & Teklif</a></li>
@@ -188,6 +189,20 @@
                         <p class="price-note">Tam montajlı, garantili ve sevkiyata hazır nihai kutu.</p>
                     </div>
 
+                    <!-- SmartBox 8 Bileşen Entegrasyon Çağrısı -->
+                    <div class="smartbox-bom-teaser">
+                        <div class="bom-teaser-info">
+                            <span class="bom-teaser-icon">🧩</span>
+                            <div class="bom-teaser-text">
+                                <span class="bom-teaser-title">8 Temel Bileşenin Entegrasyonu</span>
+                                <span class="bom-teaser-desc">Sensör Kiti (G03) dahil 8 ekosistem bileşeni</span>
+                            </div>
+                        </div>
+                        <a href="#bilesenler" class="bom-teaser-link">
+                            Bileşenleri Gör ↓
+                        </a>
+                    </div>
+
                     <!-- Aksiyon Butonları -->
                     <div class="product-actions">
                         <a href="https://dijital-sirketler-ligi-serhat-ata.ataserhat54.chatgpt.site/ogrenci?marketCompany=G03" target="_blank" rel="noopener noreferrer" class="btn btn-primary product-btn">
@@ -242,6 +257,219 @@
         </div>
     </section>
 
+    <!-- SmartBox Bileşenleri & Birim Maliyet Listesi Bölümü -->
+    <section id="bilesenler" class="section-components">
+        <div class="container">
+            <div class="components-header">
+                <span class="components-badge">🧩 SmartBox Malzeme & Maliyet Listesi (BOM)</span>
+                <h2 class="section-title">SmartBox Bileşenleri ve Birim Maliyetleri</h2>
+                <p class="components-subtitle">
+                    Bir adet nihai <strong>SmartBox</strong> üretimi için gerekli 8 temel bileşen, montaj ve sevkiyat giderlerinin birim maliyet dökümü:
+                </p>
+            </div>
+
+            <!-- Bileşenler ve Maliyet Listesi Tablosu -->
+            <div class="bom-list-wrapper">
+                <div class="bom-list-header">
+                    <span class="bom-col-title">Bileşen / Hizmet</span>
+                    <span class="bom-col-supplier">Tedarikçi</span>
+                    <span class="bom-col-cost">Birim Maliyet</span>
+                </div>
+
+                <div class="bom-list-items">
+                    <!-- 1. Enerji Modülü -->
+                    <div class="bom-item">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">⚡</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Enerji Modülü</span>
+                                <span class="bom-item-cat">Donanım & Güç</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill">EnerjiNova (G01)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val cost-val-energy">65 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. İşlemci Modülü -->
+                    <div class="bom-item">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">🧠</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">İşlemci Modülü</span>
+                                <span class="bom-item-cat">Donanım & Mantık</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill">MikroCore (G02)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val">60 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Sensör Kiti (SensoTek G03 - Vurgulu) -->
+                    <div class="bom-item bom-item-highlight">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon highlight-icon">⭐</span>
+                            <div class="bom-item-info">
+                                <div class="name-with-tag">
+                                    <span class="bom-item-name">Sensör Kiti</span>
+                                    <span class="our-badge">Bizim Ürünümüz</span>
+                                </div>
+                                <span class="bom-item-cat highlight-cat">Çekirdek Algılayıcı Modül (SensoTek)</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill highlight-pill">SensoTek (G03)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val highlight-cost">60 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Kasa ve Ambalaj -->
+                    <div class="bom-item">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">📦</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Kasa ve Ambalaj</span>
+                                <span class="bom-item-cat">Fiziksel Gövde & Muhafaza</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill">FormAmbalaj (G04)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val">60 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Yazılım Lisansı -->
+                    <div class="bom-item">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">☁️</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Yazılım Lisansı</span>
+                                <span class="bom-item-cat">Gömülü İşletim Sistemi</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill">BulutOS (G05)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val">60 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. Lojistik Tokenı -->
+                    <div class="bom-item">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">🚚</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Lojistik Tokenı</span>
+                                <span class="bom-item-cat">Tedarik Zinciri & Kargo Hakkı</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill">HızlıRota (G06)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val">60 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. Müşteri Analitiği Lisansı -->
+                    <div class="bom-item">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">📊</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Müşteri Analitiği Lisansı</span>
+                                <span class="bom-item-cat">Kullanım Verisi & Raporlama</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill">VeriPusula (G07)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val">60 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- 8. Garanti Hizmet Paketi -->
+                    <div class="bom-item">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">🛡️</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Garanti Hizmet Paketi</span>
+                                <span class="bom-item-cat">2 Yıl Teknik Servis & Güvence</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill">GüvencePlus (G08)</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val">60 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- Operasyonel Ek Maliyetler Ayracı -->
+                    <div class="bom-section-divider">
+                        <span>Montaj & Operasyonel Giderler</span>
+                    </div>
+
+                    <!-- Montaj Maliyeti -->
+                    <div class="bom-item bom-item-operation">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">🔧</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Montaj</span>
+                                <span class="bom-item-cat">SmartBox Nihai Montaj İşçiliği</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier">
+                            <span class="supplier-pill op-pill">SensoTek Montaj Hattı</span>
+                        </div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val op-cost">100 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- Sevkiyat Maliyeti -->
+                    <div class="bom-item bom-item-operation">
+                        <div class="bom-item-main">
+                            <span class="bom-item-icon">📦</span>
+                            <div class="bom-item-info">
+                                <span class="bom-item-name">Sevkiyat</span>
+                                <span class="bom-item-cat">Lojistik Operasyonu</span>
+                            </div>
+                        </div>
+                        <div class="bom-item-supplier"></div>
+                        <div class="bom-item-cost">
+                            <span class="cost-val free-cost">0 TL</span>
+                        </div>
+                    </div>
+
+                    <!-- Birim Toplam Maliyet -->
+                    <div class="bom-total-row">
+                        <div class="total-label-box">
+                            <span class="total-title">Birim Toplam Maliyet</span>
+                            <span class="total-desc">8 Bileşen (485 TL) + Montaj (100 TL) + Sevkiyat (0 TL)</span>
+                        </div>
+                        <div class="total-price-box">
+                            <span class="total-price-val">585 TL</span>
+                            <span class="total-unit">/ SmartBox Başına</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Haftalık KPI ve Performans Göstergeleri Bölümü -->
     <section id="kpi-raporu" class="section-kpi">
         <div class="container">
@@ -256,20 +484,20 @@
             <!-- Öne Çıkan Satış & Hacim Özeti -->
             <div class="kpi-summary-banner">
                 <div class="summary-banner-item">
-                    <span class="summary-banner-label">Gerçekleşen Satış</span>
-                    <strong class="summary-banner-val">223 <small>Adet</small></strong>
-                    <span class="summary-banner-sub">Haftalık Satış Hacmi</span>
+                    <span class="summary-banner-label">Son Kapanan Tur Satışı</span>
+                    <strong class="summary-banner-val">18 <small>Adet</small></strong>
+                    <span class="summary-banner-sub">Gerçekleşen Satış Hacmi</span>
                 </div>
                 <div class="summary-banner-divider"></div>
                 <div class="summary-banner-item">
-                    <span class="summary-banner-label">Uzmanlık Üretimi (Sensör Kiti)</span>
-                    <strong class="summary-banner-val">5.698 <small>Adet</small></strong>
-                    <span class="summary-banner-sub">Tam Kapasite Çıktı</span>
+                    <span class="summary-banner-label">Bu Tur Uzmanlık Üretimi</span>
+                    <strong class="summary-banner-val">3.800 <small>Adet</small></strong>
+                    <span class="summary-banner-sub">Sensör Kiti Çıktısı</span>
                 </div>
                 <div class="summary-banner-divider"></div>
                 <div class="summary-banner-item">
                     <span class="summary-banner-label">Müşteri Memnuniyeti (CSAT)</span>
-                    <strong class="summary-banner-val">82 <small>/ 100</small></strong>
+                    <strong class="summary-banner-val">83 <small>/ 100</small></strong>
                     <span class="summary-banner-sub">Memnuniyet Endeksi</span>
                 </div>
             </div>
@@ -290,19 +518,19 @@
                             <span class="kpi-cat">1. Satış Göstergeleri</span>
                             <h3 class="kpi-title">Satış Performansı</h3>
                         </div>
-                        <span class="kpi-status-badge status-active">223 Satış</span>
+                        <span class="kpi-status-badge status-active">18 Satış</span>
                     </div>
 
-                    <p class="kpi-desc">Haftalık periyotta gerçekleşen toplam kesinleşmiş ürün satış adedi.</p>
+                    <p class="kpi-desc">Son kapanan turda gerçekleşen kesinleşmiş ürün satış adedi.</p>
 
                     <div class="kpi-metrics-list">
                         <div class="kpi-metric-box primary">
                             <div class="metric-top">
-                                <span class="metric-name">Toplam Satış Hacmi</span>
+                                <span class="metric-name">Son Kapanan Tur Satışı</span>
                                 <span class="metric-pill">Kesinleşen</span>
                             </div>
                             <div class="metric-number-row">
-                                <span class="metric-number">223</span>
+                                <span class="metric-number">18</span>
                                 <span class="metric-unit">Adet Satıldı</span>
                             </div>
                         </div>
@@ -320,7 +548,7 @@
                     </div>
 
                     <div class="kpi-card-footer">
-                        <span class="footer-note">✅ Haftalık dönemde toplam 223 adet ürün satışı gerçekleştirilmiştir.</span>
+                        <span class="footer-note">✅ Son kapanan turda toplam 18 adet ürün satışı gerçekleştirilmiştir.</span>
                     </div>
                 </div>
 
@@ -336,7 +564,7 @@
                             <span class="kpi-cat">2. Üretim Göstergeleri</span>
                             <h3 class="kpi-title">Sensör Kiti İmalatı</h3>
                         </div>
-                        <span class="kpi-status-badge status-active">5.698 Üretim</span>
+                        <span class="kpi-status-badge status-active">3.800 Üretim</span>
                     </div>
 
                     <p class="kpi-desc">Haftalık hammadde işleme, bileşen entegrasyonu ve sensör kiti uzmanlık üretim bandı çıktısı.</p>
@@ -348,7 +576,7 @@
                                 <span class="metric-pill">Sensör Kiti</span>
                             </div>
                             <div class="metric-number-row">
-                                <span class="metric-number">5.698</span>
+                                <span class="metric-number">3.800</span>
                                 <span class="metric-unit">Adet Üretildi</span>
                             </div>
                         </div>
@@ -366,12 +594,12 @@
                     </div>
 
                     <div class="kpi-card-footer">
-                        <span class="footer-note">✅ Sensör Kiti uzmanlık üretim hattı tam kapasite çalışarak 5.698 adet üretim gerçekleştirdi.</span>
+                        <span class="footer-note">✅ Sensör Kiti uzmanlık üretim hattında bu tur 3.800 adet üretim gerçekleştirildi.</span>
                     </div>
                 </div>
 
                 <!-- KPI 3: Montaj (Assembly) -->
-                <div class="kpi-card">
+                <div class="kpi-card kpi-card-highlight">
                     <div class="kpi-card-header">
                         <div class="kpi-icon-wrap kpi-icon-assembly">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -382,26 +610,26 @@
                             <span class="kpi-cat">3. Montaj Göstergeleri</span>
                             <h3 class="kpi-title">SmartBox Montaj Hattı</h3>
                         </div>
-                        <span class="kpi-status-badge status-pending">0 Montaj</span>
+                        <span class="kpi-status-badge status-active">483 Montaj</span>
                     </div>
 
                     <p class="kpi-desc">SmartBox nihai montaj hattı çıktısı ve sevkiyata hazır nihai kutu stok durumu.</p>
 
                     <div class="kpi-metrics-list">
-                        <div class="kpi-metric-box">
+                        <div class="kpi-metric-box accent">
                             <div class="metric-top">
-                                <span class="metric-name">Bu Tur SmartBox Üretimi</span>
+                                <span class="metric-name">Bu Tur SmartBox Montajı</span>
                                 <span class="metric-pill">Montaj</span>
                             </div>
                             <div class="metric-number-row">
-                                <span class="metric-number">0</span>
-                                <span class="metric-unit">Adet Üretildi</span>
+                                <span class="metric-number">483</span>
+                                <span class="metric-unit">Adet Montajlandı</span>
                             </div>
                         </div>
 
                         <div class="kpi-metric-box">
                             <div class="metric-top">
-                                <span class="metric-name">Hazır SmartBox Stoğu</span>
+                                <span class="metric-name">Hazır SmartBox</span>
                                 <span class="metric-pill">Depo Durumu</span>
                             </div>
                             <div class="metric-number-row">
@@ -412,7 +640,7 @@
                     </div>
 
                     <div class="kpi-card-footer">
-                        <span class="footer-note info">ℹ️ Bu turda SmartBox montajı yapılmamış, tüm fabrika kapasitesi Sensör Kiti uzmanlık üretimine odaklanmıştır.</span>
+                        <span class="footer-note">✅ Bu turda 483 adet SmartBox nihai montajı başarıyla tamamlanmıştır.</span>
                     </div>
                 </div>
 
@@ -428,7 +656,7 @@
                             <span class="kpi-cat">4. Müşteri Memnuniyeti</span>
                             <h3 class="kpi-title">B2B & Müşteri CSAT</h3>
                         </div>
-                        <span class="kpi-status-badge status-active">82 / 100</span>
+                        <span class="kpi-status-badge status-active">83 / 100</span>
                     </div>
 
                     <p class="kpi-desc">B2B tedarik ortakları ve perakende alıcıların teslimat hızı, ürün kalitesi ve destek memnuniyeti.</p>
@@ -436,11 +664,11 @@
                     <div class="kpi-metrics-list">
                         <div class="kpi-metric-box primary">
                             <div class="metric-top">
-                                <span class="metric-name">Haftalık Memnuniyet Skoru</span>
+                                <span class="metric-name">Müşteri Memnuniyeti</span>
                                 <span class="metric-pill">CSAT Endeksi</span>
                             </div>
                             <div class="metric-number-row">
-                                <span class="metric-number">82<small style="font-size: 1rem; color: #94a3b8; font-weight: 600;">/100</small></span>
+                                <span class="metric-number">83<small style="font-size: 1rem; color: #94a3b8; font-weight: 600;">/100</small></span>
                                 <span class="metric-unit">Puan</span>
                             </div>
                         </div>
@@ -458,7 +686,7 @@
                     </div>
 
                     <div class="kpi-card-footer">
-                        <span class="footer-note">✅ B2B iş ortakları ve alıcı anketlerinden 100 üzerinden 82 memnuniyet puanı elde edildi.</span>
+                        <span class="footer-note">✅ B2B iş ortakları ve alıcı anketlerinden 100 üzerinden 83 memnuniyet puanı elde edildi.</span>
                     </div>
                 </div>
 

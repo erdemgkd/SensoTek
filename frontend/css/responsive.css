@@ -33,7 +33,8 @@
 
     /* Hamburger tıklandığında açılan menü */
     .nav-menu.is-open {
-        max-height: 580px;
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
         padding: 16px;
         opacity: 1;
         visibility: visible;
