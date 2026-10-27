@@ -43,6 +43,7 @@
                     <li><a href="#urunler" class="nav-link">Ürünler</a></li>
                     <li><a href="#bilesenler" class="nav-link">Bileşenler</a></li>
                     <li><a href="#kpi-raporu" class="nav-link">Haftalık KPI</a></li>
+                    <li><a href="#panel-dashboard" class="nav-link">Canlı Panel</a></li>
                     <li><a href="#departmanlar" class="nav-link">Departmanlar</a></li>
                     <li><a href="#siparis-formu" class="nav-link">Sipariş & Teklif</a></li>
                     <li><a href="#iletisim" class="nav-link">İletişim</a></li>
@@ -694,6 +695,456 @@
         </div>
     </section>
 
+    <!-- Stok, Kapasite, Darboğaz ve Ürün Bulunabilirliği Paneli (Dashboard) -->
+    <section id="panel-dashboard" class="section-dashboard">
+        <div class="container">
+            <div class="dashboard-header">
+                <span class="dashboard-badge">⚡ Canlı Operasyon & Yönetim Paneli</span>
+                <h2 class="section-title">Stok, Kapasite, Darboğaz & Ürün Bulunabilirliği</h2>
+                <p class="dashboard-subtitle">
+                    SensoTek A.Ş. (G03) <strong>canlı envanter dengesi</strong>, montaj hattı kapasite doluluğu, <strong>8 bileşenli darboğaz analizi</strong> ve anında sevkiyat teslimat süreleri tek merkezden izlenmektedir.
+                </p>
+            </div>
+
+            <!-- Üst Özet Kartları (4 Temel Metrik) -->
+            <div class="dashboard-kpi-summary">
+                <!-- 1. Toplam Hazır Stok -->
+                <div class="dash-summary-card accent-green">
+                    <div class="dash-card-top">
+                        <span class="dash-card-label">Toplam Rezerv Stok</span>
+                        <div class="dash-card-icon">📦</div>
+                    </div>
+                    <div class="dash-card-value">1.700 <small>Adet</small></div>
+                    <div class="dash-card-meta">
+                        <span>✓ 1.500 Sensör Kiti + 200 SmartBox</span>
+                    </div>
+                </div>
+
+                <!-- 2. Kapasite Doluluğu -->
+                <div class="dash-summary-card">
+                    <div class="dash-card-top">
+                        <span class="dash-card-label">Hattın Kapasite Doluluğu</span>
+                        <div class="dash-card-icon">⚡</div>
+                    </div>
+                    <div class="dash-card-value">%95 <small>Aktif</small></div>
+                    <div class="dash-card-meta">
+                        <span>✓ 4.750 / 5.000 İmalat Çıktısı</span>
+                    </div>
+                </div>
+
+                <!-- 3. Kritik Darboğaz -->
+                <div class="dash-summary-card accent-amber">
+                    <div class="dash-card-top">
+                        <span class="dash-card-label">Kritik Darboğaz (BOM)</span>
+                        <div class="dash-card-icon">⚠️</div>
+                    </div>
+                    <div class="dash-card-value">600 <small>Montaj Limiti</small></div>
+                    <div class="dash-card-meta">
+                        <span>⚠️ Kasa & Enerji Stoğu Kısıtı</span>
+                    </div>
+                </div>
+
+                <!-- 4. Bulunabilirlik & Lead Time -->
+                <div class="dash-summary-card accent-purple">
+                    <div class="dash-card-top">
+                        <span class="dash-card-label">Teslimat Bulunabilirlik</span>
+                        <div class="dash-card-icon">⏱️</div>
+                    </div>
+                    <div class="dash-card-value">Hemen <small>Teslim</small></div>
+                    <div class="dash-card-meta">
+                        <span>✓ Sensör Kiti 0 Gün | SmartBox 1-2 Gün</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ana 2x2 Grid Düzeni -->
+            <div class="dashboard-main-grid">
+
+                <!-- PANEL 1: STOK DURUMU & BOM ENVANTERİ -->
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <div class="dash-panel-title-group">
+                            <div class="dash-panel-badge-icon">📦</div>
+                            <div>
+                                <h3 class="dash-panel-title">Stok & Envanter Takibi</h3>
+                                <p class="dash-panel-subtitle">Sensör Kiti, nihai SmartBox ve 8'li BOM parça stokları</p>
+                            </div>
+                        </div>
+                        <span class="dash-panel-tag tag-ready">Stok Güvenli</span>
+                    </div>
+
+                    <!-- Stok Özet Kutuları -->
+                    <div class="stock-summary-banner">
+                        <div class="stock-hero-box highlight">
+                            <span class="stock-hero-icon">⭐</span>
+                            <div class="stock-hero-info">
+                                <span class="stock-hero-title">Sensör Kiti (Çekirdek Ürün)</span>
+                                <span class="stock-hero-count">1.500 <small>Adet Hazır</small></span>
+                            </div>
+                        </div>
+                        <div class="stock-hero-box">
+                            <span class="stock-hero-icon">📱</span>
+                            <div class="stock-hero-info">
+                                <span class="stock-hero-title">SmartBox (Montajlı Nihai)</span>
+                                <span class="stock-hero-count">200 <small>Adet Depoda</small></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8'li BOM Envanter Listesi -->
+                    <div class="bom-stock-list">
+                        <!-- 1. Sensör Kiti -->
+                        <div class="bom-stock-item is-primary" id="bom-sensor">
+                            <div class="bom-stock-name">
+                                <span>⭐ Sensör Kiti</span>
+                                <span class="bom-stock-code">(SensoTek - G03)</span>
+                            </div>
+                            <div class="bom-stock-qty">1.500 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar" style="width: 100%;"></div>
+                            </div>
+                            <div class="bom-stock-status">Tam Stok</div>
+                        </div>
+
+                        <!-- 2. Kasa ve Ambalaj (Darboğaz) -->
+                        <div class="bom-stock-item is-bottleneck" id="bom-kasa">
+                            <div class="bom-stock-name">
+                                <span>📦 Kasa ve Ambalaj</span>
+                                <span class="bom-stock-code">(FormAmbalaj - G04)</span>
+                            </div>
+                            <div class="bom-stock-qty">600 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar bar-amber" style="width: 40%;"></div>
+                            </div>
+                            <div class="bom-stock-status" style="color: #fbbf24;">Kritik Eşik</div>
+                        </div>
+
+                        <!-- 3. Enerji Modülü (Kritik) -->
+                        <div class="bom-stock-item is-bottleneck" id="bom-enerji">
+                            <div class="bom-stock-name">
+                                <span>⚡ Enerji Modülü</span>
+                                <span class="bom-stock-code">(EnerjiNova - G01)</span>
+                            </div>
+                            <div class="bom-stock-qty">650 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar bar-amber" style="width: 43%;"></div>
+                            </div>
+                            <div class="bom-stock-status" style="color: #fbbf24;">Kritik Eşik</div>
+                        </div>
+
+                        <!-- 4. İşlemci Modülü -->
+                        <div class="bom-stock-item" id="bom-islemci">
+                            <div class="bom-stock-name">
+                                <span>🧠 İşlemci Modülü</span>
+                                <span class="bom-stock-code">(MikroCore - G02)</span>
+                            </div>
+                            <div class="bom-stock-qty">850 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar bar-green" style="width: 56%;"></div>
+                            </div>
+                            <div class="bom-stock-status" style="color: #34d399;">Yeterli</div>
+                        </div>
+
+                        <!-- 5. Müşteri Analitiği Lisansı -->
+                        <div class="bom-stock-item" id="bom-analitik">
+                            <div class="bom-stock-name">
+                                <span>📊 Müşteri Analitiği</span>
+                                <span class="bom-stock-code">(VeriPusula - G07)</span>
+                            </div>
+                            <div class="bom-stock-qty">900 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar bar-green" style="width: 60%;"></div>
+                            </div>
+                            <div class="bom-stock-status" style="color: #34d399;">Yeterli</div>
+                        </div>
+
+                        <!-- 6. Garanti Hizmet Paketi -->
+                        <div class="bom-stock-item" id="bom-garanti">
+                            <div class="bom-stock-name">
+                                <span>🛡️ Garanti Paketi</span>
+                                <span class="bom-stock-code">(GüvencePlus - G08)</span>
+                            </div>
+                            <div class="bom-stock-qty">1.000 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar bar-green" style="width: 66%;"></div>
+                            </div>
+                            <div class="bom-stock-status" style="color: #34d399;">Güvenli</div>
+                        </div>
+
+                        <!-- 7. Lojistik Tokenı -->
+                        <div class="bom-stock-item" id="bom-lojistik">
+                            <div class="bom-stock-name">
+                                <span>🚚 Lojistik Tokenı</span>
+                                <span class="bom-stock-code">(HızlıRota - G06)</span>
+                            </div>
+                            <div class="bom-stock-qty">1.100 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar bar-green" style="width: 73%;"></div>
+                            </div>
+                            <div class="bom-stock-status" style="color: #34d399;">Güvenli</div>
+                        </div>
+
+                        <!-- 8. Yazılım Lisansı -->
+                        <div class="bom-stock-item" id="bom-yazilim">
+                            <div class="bom-stock-name">
+                                <span>☁️ Yazılım Lisansı</span>
+                                <span class="bom-stock-code">(BulutOS - G05)</span>
+                            </div>
+                            <div class="bom-stock-qty">1.200 Adet</div>
+                            <div class="bom-stock-bar-wrap">
+                                <div class="bom-stock-bar bar-green" style="width: 80%;"></div>
+                            </div>
+                            <div class="bom-stock-status" style="color: #34d399;">Güvenli</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 2: KAPASİTE VE HAT DOLULUĞU -->
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <div class="dash-panel-title-group">
+                            <div class="dash-panel-badge-icon">⚡</div>
+                            <div>
+                                <h3 class="dash-panel-title">Kapasite & Hat Doluluğu</h3>
+                                <p class="dash-panel-subtitle">Tur bazlı üretim ve montaj hatlarının doluluk performansı</p>
+                            </div>
+                        </div>
+                        <span class="dash-panel-tag tag-ready">%93 Ortalama Verim</span>
+                    </div>
+
+                    <div class="capacity-grid">
+                        <!-- 1. Sensör Kiti Üretim Bandı -->
+                        <div class="capacity-card">
+                            <div class="capacity-card-top">
+                                <div>
+                                    <div class="capacity-title">Sensör Kiti Uzmanlık Üretim Bandı</div>
+                                    <div class="capacity-sub">SensoTek Tesisleri — Maks. 5.000 Adet/Tur</div>
+                                </div>
+                                <div class="capacity-percent">%95</div>
+                            </div>
+                            <div class="capacity-meter-wrap">
+                                <div class="capacity-meter-bar pulse-green" style="width: 95%;"></div>
+                            </div>
+                            <div class="capacity-stats-row">
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Bu Tur Üretim</span>
+                                    <span class="cap-stat-value">4.750 <small>Adet</small></span>
+                                </div>
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Maks. Kapasite</span>
+                                    <span class="cap-stat-value">5.000 <small>Adet</small></span>
+                                </div>
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Kalan Boş Pay</span>
+                                    <span class="cap-stat-value">250 <small>Adet (%5)</small></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. SmartBox Montaj Hattı -->
+                        <div class="capacity-card">
+                            <div class="capacity-card-top">
+                                <div>
+                                    <div class="capacity-title">SmartBox Montaj ve Entegrasyon Hattı</div>
+                                    <div class="capacity-sub">Nihai Montaj Birimi — Maks. 750 Adet/Tur</div>
+                                </div>
+                                <div class="capacity-percent">%91</div>
+                            </div>
+                            <div class="capacity-meter-wrap">
+                                <div class="capacity-meter-bar" style="width: 91%;"></div>
+                            </div>
+                            <div class="capacity-stats-row">
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Tamamlanan Montaj</span>
+                                    <span class="cap-stat-value">683 <small>Adet</small></span>
+                                </div>
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Montaj Kotası</span>
+                                    <span class="cap-stat-value">750 <small>Adet</small></span>
+                                </div>
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Kalan Montaj Payı</span>
+                                    <span class="cap-stat-value">67 <small>Adet (%9)</small></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Test & Kalite Kontrol Laboratuvarı -->
+                        <div class="capacity-card">
+                            <div class="capacity-card-top">
+                                <div>
+                                    <div class="capacity-title">Kalite Kontrol & Kalibrasyon Hattı</div>
+                                    <div class="capacity-sub">Otomasyonlu Sensör ve Devre Fonksiyon Testi</div>
+                                </div>
+                                <div class="capacity-percent">%88</div>
+                            </div>
+                            <div class="capacity-meter-wrap">
+                                <div class="capacity-meter-bar pulse-green" style="width: 88%;"></div>
+                            </div>
+                            <div class="capacity-stats-row">
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Test Hızı</span>
+                                    <span class="cap-stat-value">1.000 <small>Adet/Saat</small></span>
+                                </div>
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">Hata Oranı</span>
+                                    <span class="cap-stat-value">%0.2 <small>Tolerans</small></span>
+                                </div>
+                                <div class="cap-stat-item">
+                                    <span class="cap-stat-label">CSAT Uyumu</span>
+                                    <span class="cap-stat-value">80/100 <small>Puan</small></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 3: DARBOĞAZ ANALİZİ VE SİMÜLATÖR -->
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <div class="dash-panel-title-group">
+                            <div class="dash-panel-badge-icon">⚠️</div>
+                            <div>
+                                <h3 class="dash-panel-title">Darboğaz Analizi & Simülatör</h3>
+                                <p class="dash-panel-subtitle">Montajı kısıtlayan en dar bileşen ve üretim simülasyonu</p>
+                            </div>
+                        </div>
+                        <span class="dash-panel-tag tag-warning">Dış Bileşen Kısıtı</span>
+                    </div>
+
+                    <!-- Darboğaz Uyarı Notu -->
+                    <div class="bottleneck-alert-box">
+                        <div class="bottleneck-alert-icon">⚠️</div>
+                        <div class="bottleneck-alert-content">
+                            <div class="bottleneck-alert-title">Kritik Darboğaz Eşiği: Kasa (600) ve Enerji Modülü (650)</div>
+                            <p class="bottleneck-alert-desc">
+                                SensoTek bünyesinde <strong>1.500 adet hazır Sensör Kiti</strong> bulunmasına rağmen, SmartBox montajı için gereken 8 parçadan <strong>Kasa ve Ambalaj (600 Adet)</strong> ile <strong>Enerji Modülü (650 Adet)</strong> ana darboğazı oluşturmaktadır. Ek satın alma veya barter yapılmadan bu tur üretilebilecek maksimum SmartBox miktarı <strong>600 adettir</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- İnteraktif Montaj Simülatörü -->
+                    <div class="simulator-box">
+                        <div class="simulator-title-row">
+                            <div class="simulator-title">
+                                <span>🧮</span> Canlı SmartBox Montaj Simülatörü
+                            </div>
+                            <span class="dash-panel-tag tag-info">İnteraktif Test</span>
+                        </div>
+
+                        <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 14px;">
+                            Üretmek istediğiniz SmartBox adedini kaydırıcıyla belirleyerek hangi parçalarda darboğaz yaşanacağını anında test edin:
+                        </p>
+
+                        <div class="simulator-ctrl-row">
+                            <input type="range" class="sim-slider" id="dash-sim-slider" min="50" max="1500" step="50" value="600" aria-label="SmartBox Üretim Adedi Simülasyonu">
+                            <div class="sim-target-badge"><span id="dash-sim-val">600</span> Adet</div>
+                        </div>
+
+                        <div class="sim-result-box">
+                            <div class="sim-result-status">
+                                <span id="dash-sim-icon">✅</span>
+                                <span id="dash-sim-text">600 Adet SmartBox mevcut stoklarla eksiksiz üretilebilir.</span>
+                            </div>
+                            <div class="sim-result-missing" id="dash-sim-missing">
+                                Tüm 8 bileşen depomuzda yeterli miktarda bulunmaktadır. Darboğaz riski yoktur.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 4: ÜRÜN BULUNABİLİRLİĞİ VE TESLİMAT SÜRELERİ -->
+                <div class="dash-panel">
+                    <div class="dash-panel-header">
+                        <div class="dash-panel-title-group">
+                            <div class="dash-panel-badge-icon">⏱️</div>
+                            <div>
+                                <h3 class="dash-panel-title">Ürün Bulunabilirliği & Lead Times</h3>
+                                <p class="dash-panel-subtitle">Sipariş türüne göre anlık bulunabilirlik ve sevk süreleri</p>
+                            </div>
+                        </div>
+                        <span class="dash-panel-tag tag-ready">Aktif Sevkiyat</span>
+                    </div>
+
+                    <div class="availability-list">
+                        <!-- 1. Sensör Kiti -->
+                        <div class="avail-card">
+                            <div class="avail-left">
+                                <div class="avail-icon-wrap" style="color: var(--color-accent-hover);">⭐</div>
+                                <div class="avail-info">
+                                    <span class="avail-product-name">Sensör Kiti (B2B Çekirdek Ürün)</span>
+                                    <span class="avail-product-desc">1.500 Adet fiziksel depoda hazır rezerv. Bekleme süresi 0 gün.</span>
+                                </div>
+                            </div>
+                            <div class="avail-right">
+                                <div class="avail-lead-time">⚡ Hemen / Aynı Gün</div>
+                                <span class="avail-status-tag tag-ready">Stokta Hazır (1.500)</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. SmartBox Ulusal Pazar -->
+                        <div class="avail-card">
+                            <div class="avail-left">
+                                <div class="avail-icon-wrap" style="color: #38bdf8;">📱</div>
+                                <div class="avail-info">
+                                    <span class="avail-product-name">SmartBox (Ulusal Perakende)</span>
+                                    <span class="avail-product-desc">200 Adet nihai depoda hazır; 600 adede kadar montajlı teslim süresi 24-48 saat.</span>
+                                </div>
+                            </div>
+                            <div class="avail-right">
+                                <div class="avail-lead-time">⏱️ 24 - 48 Saat</div>
+                                <span class="avail-status-tag tag-ready">Stokta Var (200 Adet)</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. SmartBox İhracat -->
+                        <div class="avail-card">
+                            <div class="avail-left">
+                                <div class="avail-icon-wrap" style="color: #a78bfa;">🌍</div>
+                                <div class="avail-info">
+                                    <span class="avail-product-name">SmartBox (Yurt Dışı İhracat Pazarı)</span>
+                                    <span class="avail-product-desc">Gümrük evrakları, özel uluslararası ambalaj ve lojistik sevkiyatı.</span>
+                                </div>
+                            </div>
+                            <div class="avail-right">
+                                <div class="avail-lead-time">✈️ 3 - 5 İş Günü</div>
+                                <span class="avail-status-tag tag-info">Sipariş Üzerine Hazırlanır</span>
+                            </div>
+                        </div>
+
+                        <!-- 4. Barter / Takas Bileşen Talebi -->
+                        <div class="avail-card">
+                            <div class="avail-left">
+                                <div class="avail-icon-wrap" style="color: #fbbf24;">🔄</div>
+                                <div class="avail-info">
+                                    <span class="avail-product-name">Bileşen Barter / Ürün Takası</span>
+                                    <span class="avail-product-desc">Sensör Kiti karşılığı Kasa/Enerji takaslarında karşılıklı anında takas.</span>
+                                </div>
+                            </div>
+                            <div class="avail-right">
+                                <div class="avail-lead-time">🤝 1 - 2 İş Günü</div>
+                                <span class="avail-status-tag tag-ready">Anında Mutabakat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Alt Canlı Senkronizasyon ve Hızlı Aksiyonlar -->
+            <div class="dashboard-footer-note">
+                <div class="dash-sync-info">
+                    <span class="dash-live-dot"></span>
+                    <span>Veriler canlı üretim bandı ve depo sisteminden otomatik çekilmektedir. Son güncelleme: <strong>Şimdi (Canlı)</strong></span>
+                </div>
+                <div class="dash-actions-group">
+                    <a href="#siparis-formu" class="btn-dash-action">📋 Sipariş Formuna Git</a>
+                    <a href="#bilesenler" class="btn-dash-action">🧩 BOM Listesini İncele</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Departmanlar Bölümü -->
     <section id="departmanlar" class="section-light">
         <div class="container">
@@ -1115,6 +1566,7 @@
 
     <!-- Modüler JavaScript Bileşenleri -->
     <script src="js/components/navbar.js"></script>
+    <script src="js/components/dashboard.js"></script>
     <script src="js/components/orderForm.js"></script>
 </body>
 </html>
